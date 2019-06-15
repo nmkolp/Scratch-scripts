@@ -8,7 +8,7 @@ set y to -172
 point in direction 90
 show
 draw triangle lineSize
-triangle fractal (lineSize / 2) 0 -175
+triangle fractal (lineSize / 2) 0 -172
 hide
 
 define draw triangle (lineSizeArg)
