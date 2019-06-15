@@ -2,7 +2,7 @@ when flag clicked
 pen up
 clear
 set pen color to #AA5555
-set x to -80
+set x to -85
 set y to -150
 point in direction 0
 show
