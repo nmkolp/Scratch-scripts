@@ -1,0 +1,32 @@
+when flag clicked
+pen up
+clear
+set pen color to #759D33
+set lineSize to 400
+set x to (lineSize / -2)
+set y to -175
+point in direction 90
+show
+draw triangle lineSize
+triangle fractal (lineSize / 2) 0 -175
+hide
+
+define draw triangle (lineSizeArg)
+pen down
+move lineSizeArg steps
+turn ccw 120 degrees
+move lineSizeArg steps
+turn ccw 120 degrees
+move lineSizeArg steps
+pen up
+
+define triangle fractal (lineSizeArg) (xPos) (yPos)
+set x to xPos
+set y to yPos
+point in direction 30
+draw triangle lineSizeArg
+if <(lineSizeArg / 2) > 3> then
+	triangle fractal (lineSizeArg / 2) xPos (yPos + (0.866025 * lineSizeArg))
+	triangle fractal (lineSizeArg / 2) (xPos - (lineSizeArg / 2)) yPos
+	triangle fractal (lineSizeArg / 2) (xPos + (lineSizeArg / 2)) yPos
+end
