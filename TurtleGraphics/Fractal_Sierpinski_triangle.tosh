@@ -4,7 +4,7 @@ clear
 set pen color to #759D33
 set lineSize to 400
 set x to (lineSize / -2)
-set y to -175
+set y to -172
 point in direction 90
 show
 draw triangle lineSize
