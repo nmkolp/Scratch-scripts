@@ -1,0 +1,25 @@
+when flag clicked
+hide
+
+when I receive "2"
+set x to xNow
+set y to yNow
+point in direction dirNow
+move lineSize steps
+if <x position > 240> then
+	set x to 240
+else
+	if <x position < -240> then
+		set x to -240
+	end
+end
+if <y position > 180> then
+	set y to 180
+else
+	if <y position < -180> then
+		set y to -180
+	end
+end
+set xFuture to x position
+set yFuture to y position
+broadcast "1"

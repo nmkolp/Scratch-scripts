@@ -1,0 +1,26 @@
+when flag clicked
+pen up
+clear
+set pen color to #200080
+set x to 0
+set y to 0
+point in direction 0
+show
+pen down
+set lineSize to 0.1
+loop
+hide
+
+when I receive "1"
+go to x: xFuture y: yFuture
+turn cw 19 degrees
+change lineSize by 0.1
+loop
+
+define loop
+repeat until <lineSize > 170>
+	set xNow to x position
+	set yNow to y position
+	set dirNow to direction
+	broadcast "2"
+end
