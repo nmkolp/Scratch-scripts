@@ -1,0 +1,16 @@
+when flag clicked
+pen up
+clear
+set pen color to #AA5555
+set x to -80
+set y to -150
+point in direction 0
+show
+pen down
+set lineSize to 300
+repeat until <lineSize < 1>
+	move lineSize steps
+	turn cw 122 degrees
+	change lineSize by -2
+end
+hide
