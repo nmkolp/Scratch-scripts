@@ -1,3 +1,5 @@
+// Variables: degree, lineSize
+
 when flag clicked
 set pen color to #AA5555
 hide
