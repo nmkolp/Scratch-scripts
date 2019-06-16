@@ -1,0 +1,35 @@
+when flag clicked
+pen up
+clear
+set pen color to #FF7F00
+set x to 0
+set y to 0
+point in direction 0
+show
+pen down
+set lineSize to 0.1
+repeat until <lineSize > 140>
+	set times to 8
+	set i to 1
+	repeat until <i > times>
+		move (lineSize / times) steps
+		if <x position > 240> then
+			set x to 240
+		else
+			if <x position < -240> then
+				set x to -240
+			end
+		end
+		if <y position > 180> then
+			set y to 180
+		else
+			if <y position < -180> then
+				set y to -180
+			end
+		end
+		turn cw (17 / times) degrees
+		change i by 1
+	end
+	change lineSize by 0.1
+end
+hide
