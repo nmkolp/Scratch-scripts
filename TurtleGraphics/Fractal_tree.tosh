@@ -1,0 +1,43 @@
+// Variables: xPos, yPos, facingDirection, lineSize, ratio, branches, angle, minLineSize
+
+// Sierpinski triangle: xPos 0, yPos -55, facingDirection 0, lineSize 110, ratio 0.5, branches 3, angle 120, minLineSize 1
+// H tree: xPos 0, yPos 0, facingDirection 0, lineSize 110, ratio 0.7, branches 2, angle 180, minLineSize 4
+
+when flag clicked
+pen up
+clear
+set pen color to #333333
+set xPos to 0
+set yPos to -50
+set facingDirection to 0
+set lineSize to 50
+set ratio to 0.7
+set branches to 2
+set angle to 45
+set minLineSize to 2
+set x to xPos
+set y to yPos
+show
+point in direction 180
+pen down
+move (lineSize / ratio) steps
+pen up
+tree fractal xPos yPos facingDirection lineSize
+hide
+
+define tree fractal (xArg) (yArg) (directionArg) (sizeArg)
+if <sizeArg > minLineSize> then
+	loop 0 xArg yArg directionArg sizeArg
+end
+
+define loop (i) (xArg) (yArg) (directionArg) (sizeArg)
+if <i < branches> then
+	set x to xArg
+	set y to yArg
+	point in direction ((directionArg - ((angle * (branches - 1)) / 2)) + (i * angle))
+	pen down
+	move sizeArg steps
+	pen up
+	tree fractal x position y position direction (sizeArg * ratio)
+	loop (i + 1) xArg yArg directionArg sizeArg
+end
