@@ -1,3 +1,5 @@
+// Variables: lineSize, xFuture, yFuture, xNow, yNow, dirNow
+
 when flag clicked
 hide
 
