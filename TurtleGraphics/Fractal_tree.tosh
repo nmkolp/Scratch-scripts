@@ -1,28 +1,26 @@
-// Variables: xPos, yPos, facingDirection, lineSize, ratio, branches, angle, minLineSize
+// Variables: yPos, lineSize, ratio, branches, angle, minLineSize
 
-// Sierpinski triangle: xPos 0, yPos -55, facingDirection 0, lineSize 110, ratio 0.5, branches 3, angle 120, minLineSize 1
-// H tree: xPos 0, yPos 0, facingDirection 0, lineSize 110, ratio 0.7, branches 2, angle 180, minLineSize 4
+// Sierpinski triangle: yPos -55, lineSize 110, ratio 0.5, branches 3, angle 120, minLineSize 1
+// H tree: yPos 0, lineSize 120, ratio 0.7, branches 2, angle 180, minLineSize 4
 
 when flag clicked
 pen up
 clear
 set pen color to #333333
-set xPos to 0
-set yPos to -50
-set facingDirection to 0
-set lineSize to 50
+set yPos to -60
+set lineSize to 75
 set ratio to 0.7
 set branches to 2
 set angle to 45
 set minLineSize to 2
-set x to xPos
+set x to 0
 set y to yPos
 show
 point in direction 180
 pen down
 move (lineSize / ratio) steps
 pen up
-tree fractal xPos yPos facingDirection lineSize
+tree fractal 0 yPos 0 lineSize
 hide
 
 define tree fractal (xArg) (yArg) (directionArg) (sizeArg)
