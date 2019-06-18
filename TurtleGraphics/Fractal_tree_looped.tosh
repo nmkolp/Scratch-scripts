@@ -26,17 +26,17 @@ forever
 		set angle to 2
 	end
 	change ratio by 0.1
-	if <ratio > 2.4> then
+	if <ratio > 3> then
 		set ratio to 0.4
 	end
 end
 
 define tree fractal (xArg) (yArg) (directionArg) (sizeArg) (iteration)
-if <<sizeArg > 0.5> and <<iteration < (9 - ceiling of ((branches + 1) / 2))> or <iteration < 4>>> then
+if <<iteration < (9 - ceiling of ((branches + 1) / 2))> or <iteration < 4>> then
 	loop 0 xArg yArg directionArg sizeArg iteration
 end
 
-define loop (i) (xArg) (yArg) (directionArg) (sizeArg) (iteration)
+define-atomic loop (i) (xArg) (yArg) (directionArg) (sizeArg) (iteration)
 if <i < branches> then
 	set x to xArg
 	set y to yArg
