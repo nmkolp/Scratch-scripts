@@ -1,4 +1,4 @@
-// Variables: lineSize, times, i
+// Variables: lineSize, times
 
 when flag clicked
 pen up
@@ -10,28 +10,30 @@ point in direction 0
 show
 pen down
 set lineSize to 0.1
+set times to 10
 repeat until <lineSize > 140>
-	set times to 8
-	set i to 1
-	repeat until <i > times>
-		move (lineSize / times) steps
-		if <x position > 240> then
-			set x to 240
-		else
-			if <x position < -240> then
-				set x to -240
-			end
-		end
-		if <y position > 180> then
-			set y to 180
-		else
-			if <y position < -180> then
-				set y to -180
-			end
-		end
-		turn cw (17 / times) degrees
-		change i by 1
-	end
+	draw loop 0
 	change lineSize by 0.1
 end
 hide
+
+define-atomic draw loop (i)
+if <i < times> then
+	move (lineSize / times) steps
+	if <x position > 240> then
+		set x to 240
+	else
+		if <x position < -240> then
+			set x to -240
+		end
+	end
+	if <y position > 180> then
+		set y to 180
+	else
+		if <y position < -180> then
+			set y to -180
+		end
+	end
+	turn cw (17 / times) degrees
+	draw loop (i + 1)
+end
