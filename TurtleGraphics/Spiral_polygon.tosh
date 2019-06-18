@@ -7,19 +7,22 @@ show variable degree
 forever
 	set degree to 0
 	repeat until <degree > 359>
-		wait 0.3 secs
-		pen up
-		clear
-		set lineSize to 1
-		set x to 0
-		set y to 0
-		point in direction 0
-		pen down
-		repeat until <<<x position > 240> or <x position < -240>> or <<y position > 180> or <y position < -180>>>
-			move lineSize steps
-			turn cw degree degrees
-			change lineSize by 1
-		end
-		change degree by 1
+		wait 0.1 secs
+		draw spiral
+		change degree by 0.1
 	end
+end
+
+define-atomic draw spiral
+pen up
+clear
+set x to 0
+set y to 0
+point in direction 0
+pen down
+set lineSize to 1
+repeat until <<<x position > 240> or <x position < -240>> or <<y position > 180> or <y position < -180>>>
+	move lineSize steps
+	turn cw degree degrees
+	change lineSize by 1
 end
