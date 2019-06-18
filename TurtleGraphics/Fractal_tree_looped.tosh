@@ -1,17 +1,16 @@
-// Variables: ratio, n, lineSize, branches, angle
+// Variables: ratio, lineSize, branches, angle, i1, i2, ratioPow, ratioSum
 
 when flag clicked
 hide
 set pen color to #555555
 pen up
-set ratio to 0.5
-repeat until <ratio > 0.9>
-	set n to ((abs of (0.5 - ratio) * 10) + 1)
-	set lineSize to (1/ 6 * (-4 * n * n * n + 75 * n * n - 539 * n + 1548)) * ratio
+set ratio to 0.4
+forever
 	set branches to 2
 	set angle to 2
 	repeat until <branches > 10>
-		repeat until <<<branches mod 2 = 1> and <(angle mod 180) = 0>> or <(angle mod 360) = 0>>
+		setLineSize
+		repeat until <<(angle mod 360) = 0> or <<branches mod 2 = 1> and <(angle mod 180) = 0>>>
 			clear
 			set x to 0
 			set y to 0
@@ -27,6 +26,9 @@ repeat until <ratio > 0.9>
 		set angle to 2
 	end
 	change ratio by 0.1
+	if <ratio > 2.4> then
+		set ratio to 0.4
+	end
 end
 
 define tree fractal (xArg) (yArg) (directionArg) (sizeArg) (iteration)
@@ -45,3 +47,18 @@ if <i < branches> then
 	tree fractal x position y position direction (sizeArg * ratio) (iteration + 1)
 	loop (i + 1) xArg yArg directionArg sizeArg (iteration)
 end
+
+define setLineSize
+set i1 to 1
+set ratioSum to 1
+repeat until <<i1 > (8 - ceiling of ((branches + 1) / 2))> and <i1 > 3>>
+	set i2 to 2
+	set ratioPow to ratio
+	repeat until <i2 > i1>
+		set ratioPow to (ratioPow * ratio)
+		change i2 by 1
+	end
+	change ratioSum by ratioPow
+	change i1 by 1
+end
+set lineSize to 179 / ratioSum
