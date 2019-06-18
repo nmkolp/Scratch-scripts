@@ -1,24 +1,26 @@
-// Variables: lineSize, times, i
+// Variables: lineSize, times
 
 when flag clicked
 pen up
 clear
 set pen color to #FF7F00
-set pen size to 2
+set pen size to 1.5
 set x to 0
 set y to 0
 point in direction 0
 show
 pen down
 set lineSize to 0.1
-repeat until <lineSize > 65>
-	set times to 8
-	set i to 1
-	repeat until <i > times>
-		move (lineSize / times) steps
-		turn cw (12 / times) degrees
-		change i by 1
-	end
+set times to 10
+repeat until <lineSize > 80>
+	draw loop 0
 	change lineSize by 0.1
 end
 hide
+
+define-atomic draw loop (i)
+if <i < times> then
+	move (lineSize / times) steps
+	turn cw (15 / times) degrees
+	draw loop (i + 1)
+end
